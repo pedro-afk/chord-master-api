@@ -1,0 +1,31 @@
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Output of 'npm pack'
+*.tgz
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# Build output
+build/
+dist/
+
+# Testing and coverage
+coverage/
+
+# Miscellaneous
+npm-debug.log*
+yarn-error.log*
