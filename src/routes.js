@@ -1,12 +1,12 @@
 const express = require('express');
 const routes = express.Router();
 
-const louvorController = require('./controllers/louvorController');
+const chordController = require('./controllers/chordController');
 
-routes.post('/inserirLouvor', louvorController.store);
-routes.put('/alterarLouvor', louvorController.update);
-routes.get('/buscarLouvores', louvorController.index);
-routes.get('/detalhesLouvor/:_id',louvorController.detail);
-routes.delete('/apagarLouvor/:_id',louvorController.delete);
+routes.post('/insert', chordController.store);
+routes.put('/update', chordController.update);
+routes.get('/read', chordController.index);
+routes.get('/details/:_id',chordController.detail);
+routes.delete('/delete/:_id',chordController.delete);
 
 module.exports = routes;

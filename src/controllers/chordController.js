@@ -1,25 +1,25 @@
-const Louvor = require("../models/louvor");
+const Chord = require("../models/chord");
 
 module.exports = {
   async store(req, res) {
     try {
       const {
-        louvorNumero,
-        louvorNome,
-        louvorIntro,
-        louvorLetra,
-        louvorSincronizado,
-        louvorLinkYT,
+        chordNumber,
+        chordName,
+        chordIntro,
+        chordContent,
+        sync,
+        chordLink,
       } = req.body;
-      const louvor = await Louvor.create({
-        louvorNumero,
-        louvorNome,
-        louvorIntro,
-        louvorLetra,
-        louvorSincronizado,
-        louvorLinkYT,
+      const chord = await Chord.create({
+        chordNumber,
+        chordName,
+        chordIntro,
+        chordContent,
+        sync,
+        chordLink,
       });
-      return res.status(201).json(louvor);
+      return res.status(201).json(chord);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -27,8 +27,8 @@ module.exports = {
 
   async index(req, res) {
     try {
-      const louvores = await Louvor.find();
-      res.json(louvores);
+      const chords = await Chord.find();
+      res.json(chords);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
@@ -37,9 +37,9 @@ module.exports = {
   async detail(req, res) {
     try {
       const { _id } = req.params;
-      const procuraLouvor = await Louvor.findOne({ _id });
-      if (procuraLouvor) {
-        res.json(procuraLouvor);
+      const chord = await Chord.findOne({ _id });
+      if (chord) {
+        res.json(chord);
       } else {
         res.status(404).end();
       }
@@ -52,29 +52,29 @@ module.exports = {
     try {
       const {
         _id,
-        louvorNumero,
-        louvorNome,
-        louvorIntro,
-        louvorLetra,
-        louvorSincronizado,
-        louvorLinkYT,
+        chordNumber,
+        chordName,
+        chordIntro,
+        chordContent,
+        sync,
+        chordLink,
       } = req.body;
       let dataCreate = {};
       dataCreate = {
-        louvorNumero,
-        louvorNome,
-        louvorIntro,
-        louvorLetra,
-        louvorSincronizado,
-        louvorLinkYT,
+        chordNumber,
+        chordName,
+        chordIntro,
+        chordContent,
+        sync,
+        chordLink,
       };
-      const atualizaLouvor = await Louvor.findByIdAndUpdate(
+      const update = await Chord.findByIdAndUpdate(
         { _id },
         dataCreate,
         { new: true }
       );
-      if (atualizaLouvor) {
-        res.json(atualizaLouvor);
+      if (update) {
+        res.json(update);
       } else {
         res.status(404).end();
       }
@@ -86,8 +86,8 @@ module.exports = {
   async delete(req, res) {
     try {
       const { _id } = req.params;
-      const deletaLouvor = await Louvor.findByIdAndDelete({ _id });
-      if (deletaLouvor) {
+      const deleteChord = await Chord.findByIdAndDelete({ _id });
+      if (deleteChord) {
         res.status(204).end();
       } else {
         res.status(404).end();
