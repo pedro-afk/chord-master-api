@@ -1,7 +1,7 @@
 {
   "name": "app-ieq-backend",
   "version": "1.0.0",
-  "description": "Projeto para escolha de músicas voltado para a equipe de louvor",
+  "description": "Projeto para escolha de músicas voltado para a equipe de música",
   "main": "index.js",
   "scripts": {
     "test": "test",
