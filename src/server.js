@@ -9,7 +9,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.DB_SERVER)
+mongoose.connect(process.env.DB_SERVER_LOCAL)
 .then(() => {
     console.log('Conectado ao MongoDB com sucesso.');
 }).catch((err) => {
