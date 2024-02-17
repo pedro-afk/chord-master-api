@@ -8,7 +8,6 @@ module.exports = {
         chordName,
         chordIntro,
         chordContent,
-        sync,
         chordLink,
       } = req.body;
 
@@ -21,7 +20,6 @@ module.exports = {
             chordName: chordName,
             chordIntro: chordIntro,
             chordContent: chordContent,
-            sync: sync,
             chordLink: chordLink,
           }
         };
@@ -34,7 +32,6 @@ module.exports = {
         chordName,
         chordIntro,
         chordContent,
-        sync,
         chordLink,
       });
       return res.status(201).json(chord);
@@ -74,7 +71,6 @@ module.exports = {
         chordName,
         chordIntro,
         chordContent,
-        sync,
         chordLink,
       } = req.body;
       let dataCreate = {};
@@ -83,7 +79,6 @@ module.exports = {
         chordName,
         chordIntro,
         chordContent,
-        sync,
         chordLink,
       };
       const update = await Chord.findByIdAndUpdate(

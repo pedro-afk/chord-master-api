@@ -5,7 +5,6 @@ const ChordCollection = new mongoose.Schema({
     chordName: String,
     chordIntro: String,
     chordContent: String,
-    sync: Boolean,
     chordLink: String
 });
 module.exports = mongoose.model('chords', ChordCollection)
