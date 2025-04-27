@@ -9,4 +9,4 @@ routes.get('/read', chordController.index);
 routes.get('/details/:_id',chordController.detail);
 routes.delete('/delete/:_id',chordController.delete);
 
-module.exports = routes;    
+module.exports = routes;
