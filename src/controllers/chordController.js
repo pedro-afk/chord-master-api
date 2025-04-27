@@ -10,23 +10,6 @@ module.exports = {
         chordContent,
         chordLink,
       } = req.body;
-
-      const chordByNumber = await Chord.findOne({ chordNumber: chordNumber });
-      if (chordByNumber) {
-        const filter = { chordNumber: chordNumber };
-        const newChord = {
-          $set: {
-            chordNumber,
-            chordName: chordName,
-            chordIntro: chordIntro,
-            chordContent: chordContent,
-            chordLink: chordLink,
-          }
-        };
-        const result = await Chord.updateOne(filter, newChord);
-        return res.status(201).json(result);
-      }
-
       const chord = await Chord.create({
         chordNumber,
         chordName,
@@ -36,7 +19,7 @@ module.exports = {
       });
       return res.status(201).json(chord);
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      res.status(400).json({ error: error.message });
     }
   },
 
@@ -73,17 +56,16 @@ module.exports = {
         chordContent,
         chordLink,
       } = req.body;
-      let dataCreate = {};
-      dataCreate = {
-        chordNumber,
-        chordName,
-        chordIntro,
-        chordContent,
-        chordLink,
-      };
+
       const update = await Chord.findByIdAndUpdate(
         { _id },
-        dataCreate,
+        {
+          chordNumber,
+          chordName,
+          chordIntro,
+          chordContent,
+          chordLink,
+        },
         { new: true }
       );
       if (update) {
