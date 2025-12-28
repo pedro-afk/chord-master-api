@@ -11,16 +11,16 @@ const port = process.env.PORT;
 
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.DB_SERVER)
-.then(() => {
-    console.log('Connected on MongoDB!');
-}).catch((err) => {
-    console.error('Failure to connecto with MongoDB: ', err);
-});
+    .then(() => {
+        console.log('Connected on MongoDB!');
+    }).catch((err) => {
+        console.error('Failure to connecto with MongoDB: ', err);
+    });
 
 app.use(cors());
 app.use(express.json());
 app.use(routes);
 
-app.listen(port, () =>{
+app.listen(port, () => {
     console.log(`Server running!`);
 })
