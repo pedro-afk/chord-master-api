@@ -25,7 +25,8 @@ module.exports = {
 
   async index(req, res) {
     try {
-      const chords = await Chord.find();
+      // fixed
+      const chords = await Chord.find().sort({ chordNumber: 1 });
       res.json(chords);
     } catch (error) {
       res.status(500).json({ error: error.message });
